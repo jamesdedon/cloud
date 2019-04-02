@@ -1,0 +1,23 @@
+{
+    "AWSTemplateFormatVersion": "2010-09-09",
+
+    "Resources" : {
+        "seis665" : {
+           "Type" : "AWS::S3::Bucket",
+           "Properties" : {
+               "Tags" : [
+                   { "Key" : "Environment", "Value" : "Test" }
+               ]
+           },
+           "Metadata" : {
+               "Comment" : "Real bucket name will include seis665 plus random characters"
+           }
+        }
+    },
+    "Outputs": {
+        "BucketUrl" : {
+        "Value": {"Fn::GetAtt": ["seis665", "WebsiteURL"]},
+        "Description": "S3 bucket website address."
+        }
+    }
+}
